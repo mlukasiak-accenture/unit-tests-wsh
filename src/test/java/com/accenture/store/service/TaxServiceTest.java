@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class TaxServiceTest {
+public class TaxServiceTest {
 
     private static final BigDecimal TEST_TAX = new BigDecimal("44");
     private TaxStrategy strategy;
