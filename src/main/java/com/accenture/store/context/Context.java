@@ -1,13 +1,13 @@
 package com.accenture.store.context;
 
 import com.accenture.store.model.Country;
-import com.accenture.store.model.Order;
+import com.accenture.store.model.SaleOrder;
 
 import java.math.BigDecimal;
 
 public class Context {
     private Country country;
-    private Order   order;
+    private SaleOrder saleOrder;
     private BigDecimal tax;
     private BigDecimal orderValue;
 
@@ -19,12 +19,12 @@ public class Context {
         this.country = country;
     }
 
-    public Order getOrder() {
-        return order;
+    public SaleOrder getSaleOrder() {
+        return saleOrder;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setSaleOrder(SaleOrder saleOrder) {
+        this.saleOrder = saleOrder;
     }
 
     public BigDecimal getTax() {

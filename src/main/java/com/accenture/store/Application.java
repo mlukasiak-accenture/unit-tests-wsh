@@ -3,7 +3,7 @@ package com.accenture.store;
 import com.accenture.store.context.Context;
 import com.accenture.store.model.Country;
 import com.accenture.store.model.Item;
-import com.accenture.store.model.Order;
+import com.accenture.store.model.SaleOrder;
 import com.accenture.store.operations.custom.OrderSummaryOperation;
 import com.accenture.store.operations.custom.TaxCalculationOperation;
 import com.accenture.store.operations.OperationFactory;
@@ -32,7 +32,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Context context = new Context();
-        context.setOrder(createOrder());
+        context.setSaleOrder(createOrder());
 
         calculateValueForCountry(context, Country.POLAND);
         calculateValueForCountry(context, Country.NETHERLANDS);
@@ -60,10 +60,10 @@ public class Application implements CommandLineRunner {
         return df;
     }
 
-    private Order createOrder() {
-        Order order = new Order(new ArrayList<>());
-        order.getItems().add(new Item(new BigDecimal("12.50")));
-        order.getItems().add(new Item(new BigDecimal("50.50")));
-        return order;
+    private SaleOrder createOrder() {
+        SaleOrder saleOrder = new SaleOrder(new ArrayList<>());
+        saleOrder.getItems().add(new Item(new BigDecimal("12.50")));
+        saleOrder.getItems().add(new Item(new BigDecimal("50.50")));
+        return saleOrder;
     }
 }

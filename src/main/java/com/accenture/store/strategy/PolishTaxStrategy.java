@@ -2,7 +2,7 @@ package com.accenture.store.strategy;
 
 import com.accenture.store.context.Context;
 import com.accenture.store.model.Country;
-import com.accenture.store.model.Order;
+import com.accenture.store.model.SaleOrder;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 public class PolishTaxStrategy implements TaxStrategy {
     private static final BigDecimal VAT = new BigDecimal("0.23");
 
-    public BigDecimal calculateTax(Order order) {
-        return order.getItems().stream().map(item -> item.getPrice().multiply(VAT)).reduce(BigDecimal.ZERO, BigDecimal::add, BigDecimal::add);
+    public BigDecimal calculateTax(SaleOrder saleOrder) {
+        return saleOrder.getItems().stream().map(item -> item.getPrice().multiply(VAT)).reduce(BigDecimal.ZERO, BigDecimal::add, BigDecimal::add);
     }
 
     public boolean isApplicable(Context context) {

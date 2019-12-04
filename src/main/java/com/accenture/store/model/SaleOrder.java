@@ -2,10 +2,10 @@ package com.accenture.store.model;
 
 import java.util.List;
 
-public class Order {
+public class SaleOrder {
     private List<Item> items;
 
-    public Order(List<Item> items) {
+    public SaleOrder(List<Item> items) {
         this.items = items;
     }
 

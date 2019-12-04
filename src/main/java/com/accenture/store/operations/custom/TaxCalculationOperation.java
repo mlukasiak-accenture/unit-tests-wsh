@@ -2,7 +2,7 @@ package com.accenture.store.operations.custom;
 
 import com.accenture.store.context.Context;
 import com.accenture.store.framework.BaseOperation;
-import com.accenture.store.model.Order;
+import com.accenture.store.model.SaleOrder;
 import com.accenture.store.service.TaxService;
 
 public class TaxCalculationOperation extends BaseOperation {
@@ -14,7 +14,7 @@ public class TaxCalculationOperation extends BaseOperation {
     }
 
     public void doExecute() {
-        Order order = this.getContext().getOrder();
-        this.getContext().setTax(taxService.calculateTax(order, getContext()));
+        SaleOrder saleOrder = this.getContext().getSaleOrder();
+        this.getContext().setTax(taxService.calculateTax(saleOrder, getContext()));
     }
 }

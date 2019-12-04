@@ -7,7 +7,7 @@
 package com.accenture.store.service;
 
 import com.accenture.store.context.Context;
-import com.accenture.store.model.Order;
+import com.accenture.store.model.SaleOrder;
 import com.accenture.store.strategy.TaxStrategy;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +23,12 @@ public class TaxService {
         this.taxStrategies = taxStrategies;
     }
 
-    public BigDecimal calculateTax(Order order, Context context) {
+    public BigDecimal calculateTax(SaleOrder saleOrder, Context context) {
         Optional<TaxStrategy> taxStrategy = taxStrategies.stream()
                 .filter(strategy -> strategy.isApplicable(context))
                 .findAny();
         if (taxStrategy.isPresent()) {
-            return taxStrategy.get().calculateTax(order);
+            return taxStrategy.get().calculateTax(saleOrder);
         } else {
             throw new IllegalArgumentException("Tax calculation not available for country: " + context.getCountry());
         }
