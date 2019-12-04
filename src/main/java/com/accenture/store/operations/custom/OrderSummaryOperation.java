@@ -1,16 +1,9 @@
-/*
- * Copyright (C) Siever Consulting B.V.
- * 2019, All rights reserved.
- */
-
-
 package com.accenture.store.operations.custom;
 
 import com.accenture.store.context.Context;
 import com.accenture.store.framework.BaseOperation;
 import com.accenture.store.model.Item;
 import com.accenture.store.model.Order;
-import com.accenture.store.service.TaxService;
 
 import java.math.BigDecimal;
 

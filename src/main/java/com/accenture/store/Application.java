@@ -23,7 +23,7 @@ public class Application implements CommandLineRunner {
     @Autowired
     private OperationFactory factory;
 
-    private static Logger LOG = LoggerFactory.getLogger(Application.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -43,10 +43,13 @@ public class Application implements CommandLineRunner {
         factory.getOperation(OrderSummaryOperation.class, context).execute();
         factory.getOperation(TaxCalculationOperation.class, context).execute();
         DecimalFormat df = getDecimalFormat();
-        LOG.info("Calculating for country: {}", context.getCountry());
-        LOG.info("Order value: {} + {} = {}", df.format(context.getOrderValue()),
-                df.format(context.getTax()),
-                df.format(context.getTax().add(context.getOrderValue())));
+        if (LOG.isInfoEnabled()) {
+            LOG.info("Calculating for country: {}", context.getCountry());
+            LOG.info("Order value: {} + {} = {}", df.format(context.getOrderValue()),
+                    df.format(context.getTax()),
+                    df.format(context.getTax().add(context.getOrderValue())));
+
+        }
     }
 
     private DecimalFormat getDecimalFormat() {

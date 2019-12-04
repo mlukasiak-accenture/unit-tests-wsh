@@ -1,14 +1,7 @@
-/*
- * Copyright (C) Siever Consulting B.V.
- * 2019, All rights reserved.
- */
-
-
 package com.accenture.store.operations.custom;
 
 import com.accenture.store.context.Context;
 import com.accenture.store.operations.OperationBuilder;
-import com.accenture.store.service.TaxService;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Component
 public class PolishTaxStrategy implements TaxStrategy {
-    private static BigDecimal VAT = new BigDecimal("0.23");
+    private static final BigDecimal VAT = new BigDecimal("0.23");
 
     public BigDecimal calculateTax(Order order) {
         return order.getItems().stream().map(item -> item.getPrice().multiply(VAT)).reduce(BigDecimal.ZERO, BigDecimal::add, BigDecimal::add);
